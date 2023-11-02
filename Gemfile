@@ -71,3 +71,9 @@ group :test do
 end
 
 gem "hotwire-livereload", "~> 1.3", :group => :development
+
+gem "dockerfile-rails", ">= 1.5", :group => :development
+
+gem "sentry-ruby", "~> 5.12"
+
+gem "sentry-rails", "~> 5.12"
