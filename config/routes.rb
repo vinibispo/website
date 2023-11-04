@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   match "404", to: "errors#not_found", via: :all
   get "resume" => "resume#show", as: :resume
 
+  resources :projects, only: [:index, :show]
+
 
   # Defines the root path route ("/")
   # root "posts#index"

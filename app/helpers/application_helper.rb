@@ -1,8 +1,4 @@
 module ApplicationHelper
-  def projects_path
-    "/projects"
-  end
-
   def skills_path
     "/skills"
   end
