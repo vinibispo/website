@@ -1,0 +1,15 @@
+<% if info %>
+  <%= render 'shared/flash_message', type: 'info', message: info %>
+<% end %>
+
+<% if notice %>
+  <%= render 'shared/flash_message', type: 'success', message: notice %>
+<% end %>
+
+<% if alert %>
+  <%= render 'shared/flash_message', type: 'error', message: alert %>
+<% end %>
+
+<% if warning %>
+  <%= render 'shared/flash_message', type: 'warning', message: warning %>
+<% end %>

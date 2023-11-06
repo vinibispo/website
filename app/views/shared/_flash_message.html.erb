@@ -1,0 +1,13 @@
+<% default_classes = "border px-4 py-3 rounded relative transition-opacity duration-500 ease-in-out" %>
+<% case type %>
+<% when 'success' %>
+  <div class="bg-green-100 border-green-400 text-green-700 <%= default_classes %>" role="alert">
+<% when 'warning' %>
+  <div class="bg-yellow-100 border-yellow-400 text-yellow-700 <%= default_classes %>" role="alert">
+<% when 'info' %>
+  <div class="bg-blue-100 border-blue-400 text-blue-700 <%= default_classes %>" role="alert">
+<% when 'error' %>
+  <div class="bg-red-100 border-red-400 text-red-700 <%= default_classes %>" role="alert">
+<% end %>
+    <strong class="font-bold"><%= message %></strong>
+  </div>
