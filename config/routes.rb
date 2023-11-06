@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   root "home#index"
   match "404", to: "errors#not_found", via: :all
   get "resume" => "resume#show", as: :resume
+  get "contact" => "contact#show", as: :contact
+  post "contact" => "contact#create"
 
   resources :projects, only: [:index, :show]
 

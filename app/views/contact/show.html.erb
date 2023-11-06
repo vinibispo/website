@@ -1,0 +1,33 @@
+<div class="flex justify-center items-center h-screen w-full flex-col">
+  <div class="flex justify-center w-full mb-8">
+    <h1 class="text-4xl font-bold mb-2">Contact</h1>
+  </div>
+  <div class="w-full max-w-xs bg-white p-6 mt-4 mb-20 shadow-md">
+    <%= form_with url: contact_path, method: :post, class: "px-8 pt-6 pb-8 mb-4", turbo: false do |f| %>
+      <div class="mb-5">
+        <%= f.label :email, "Email", class: "block text-gray-700 text-lg font-bold mb-2" %>
+        <%= f.text_field :email, type: "email", class: "shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+      </div>
+      <div class="mb-6">
+        <%= f.label :message, "Message", class: "block text-gray-700 text-lg font-bold mb-2" %>
+        <%= f.text_area :message, class: "shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+      </div>
+      <div class="flex items-center justify-between">
+        <%= f.submit "Submit", class: "bg-black text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+      </div>
+      <div class="mt-6 flex items-center justify-center">
+        <h2 class="text-2xl font-bold mb-2">
+          Or
+        </h2>
+      </div>
+      <div class="mt-6 flex justify-around">
+        <%= link_to "https://www.linkedin.com/in/vinibispo", target: "_blank", rel: "noopener" do %>
+          <svg class="h-8 w-8 text-blue-500"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />  <rect x="2" y="9" width="4" height="12" />  <circle cx="4" cy="4" r="2" /></svg>
+        <% end %>
+        <%= link_to "https://github.com/vinibispo", target: "_blank", rel: "noopener" do %>
+          <svg class="h-8 w-8 text-black-500"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" /></svg>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
