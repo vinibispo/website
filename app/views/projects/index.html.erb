@@ -1,11 +1,12 @@
+<% title "Projects" %>
 <div class="flex w-full flex-col">
   <div class="flex justify-center w-full mb-8">
     <h1 class="text-4xl font-bold mb-2">Projects</h1>
   </div>
   <div class="grid grid-cols-2 grid-rows-2 gap-4 p-4 w-full items-center">
     <% projects.each do |project| %>
-      <div class="flex items-center justify-center flex-col px-4 py-2">
-        <%= image_tag project[:image], class: "w-96 h-96 object-cover transition delay-150 hover:scale-150 ease-in-out" %>
+      <div class="flex items-center justify-center flex-col px-4 py-2 transition delay-150 hover:scale-150 ease-in-out">
+        <%= image_tag project[:image], class: "w-96 h-96 object-cover" %>
         <%= link_to project[:title], project_path(project[:id]), class: "text-xl font-bold text-center" %>
       </div>
     <% end %>
