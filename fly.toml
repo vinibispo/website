@@ -7,6 +7,10 @@ app = "website-vinibispo"
 primary_region = "gru"
 console_command = "/rails/bin/rails console"
 
+[processes]
+app = "bin/rails server"
+worker = "bundle exec sidekiq"
+
 [build]
 
 [[mounts]]
