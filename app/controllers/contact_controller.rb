@@ -9,7 +9,7 @@ class ContactController < ApplicationController
     }
     Contact::Mailer
       .send_contact(**input)
-      .deliver_now
+      .deliver_later
 
     flash[:info] = "Email sent, soon I'll contact you"
 
