@@ -20,6 +20,7 @@ proxy:
   ssl: true
   host: vinibispo.com
   app_port: 81
+  response_timeout: 10
   # kamal-proxy connects to your container over port 80, use `app_port` to specify a different port.
   # app_port: 3000
 
