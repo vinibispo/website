@@ -9,7 +9,7 @@ class ErrorsControllerTest < ActionDispatch::IntegrationTest
     end
   end
   test "should get not_found" do
-    get "/404"
+    get "/other-thing"
     assert_response :not_found
   end
 

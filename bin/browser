@@ -1,0 +1,45 @@
+#!/bin/bash
+# Script to launch browser when server at the given port is ready
+# Usage: bin/browser [URL=localhost] [PORT=3000]
+# Can be launched with URL as subdomain.localhost, because modern browsers support this.
+# Script will not exit to prevent foreman to terminate also all other processes 
+
+# Assign URL and port from arguments, defaulting to localhost and 3000 if not provided
+URL=${1:-localhost}
+PORT=${2:-3000}
+
+# If the URL is a subdomain of localhost, substitute it with "localhost" for /dev/tcp check
+TCP_URL=$URL
+if [[ "$URL" == *.localhost ]]; then
+  TCP_URL=localhost
+fi
+
+echo "Waiting for http://$URL:$PORT to become available..."
+
+# Wait for the specified port to become allocated and launch the browser
+{
+  while ! echo -n > /dev/tcp/$TCP_URL/$PORT; do
+    sleep 1
+  done
+} 2>/dev/null
+
+# Detect the appropriate browser command (wslview, open, or xdg-open)
+# Start with wslview to start the host browser in WSL2
+if command -v wslview > /dev/null; then
+  OPEN_CMD="wslview"
+elif command -v open > /dev/null; then
+  OPEN_CMD="open"
+elif command -v xdg-open > /dev/null; then
+  OPEN_CMD="xdg-open"
+else
+  echo "No supported command for opening command found. Please install wslview, open, or xdg-open. Press Enter to Close."
+  read
+fi
+
+# Replace with open for MacOS or xdg-open for Linux
+$OPEN_CMD http://$URL:$PORT
+
+echo "Browser launched. Press Enter to Close."
+
+# Prevent the script from terminating immediately after launching the browser
+read
